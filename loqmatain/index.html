@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>لقمتين · اختيار تصميم العلبة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=Readex+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<style>
+:root{--bg:#F6F1E7;--card:#FFFDF8;--ink:#2B1A12;--sub:#6B5444;--line:#E4D7C2;--accent:#9C3B26;--green:#2F4A2A}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Readex Pro',system-ui,sans-serif}
+button,input{font:inherit}
+.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.gate form{width:100%;max-width:380px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px rgba(60,35,15,.10)}
+.gate h1{margin:0;font-family:'El Messiri',serif;font-size:30px}
+.gate p{margin:0;color:var(--sub);font-size:14px;line-height:1.6}
+.gate label{font-size:13px;font-weight:600}
+.gate input{height:50px;border-radius:14px;border:1.5px solid #CDBBA2;padding:0 14px;background:#fff;direction:ltr;text-align:center;font-size:17px}
+.gate input:focus{outline:3px solid rgba(156,59,38,.25);border-color:var(--accent)}
+.gate button{height:50px;border-radius:14px;border:0;background:var(--ink);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
+.gate button:disabled{opacity:.6;cursor:wait}
+.err{color:#B3261E;font-size:13px;min-height:18px}
+.app{display:none;max-width:1240px;margin:0 auto;padding:32px 16px 48px}
+.top{display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
+.eyebrow{font-size:13px;color:#7A5A48}
+.top h1{margin:0;font-family:'El Messiri',serif;font-size:clamp(30px,5vw,46px);line-height:1.15}
+.top p{margin:0;color:var(--sub);font-size:15px;line-height:1.7;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.card-h{display:flex;gap:12px;align-items:center}
+.num{width:44px;height:44px;border-radius:14px;background:var(--ink);color:#fff;font-family:'El Messiri',serif;font-size:24px;display:flex;align-items:center;justify-content:center;flex:none}
+.card h2{margin:0;font-family:'El Messiri',serif;font-size:24px}
+.sws{display:flex;gap:6px;margin-top:4px}
+.sw{width:22px;height:12px;border-radius:6px;border:1px solid rgba(0,0,0,.12)}
+.stage{position:relative;height:clamp(320px,52vw,460px);border-radius:16px;overflow:hidden}
+model-viewer{width:100%;height:100%;--poster-color:transparent}
+.loading{position:absolute;inset:auto 0 14px 0;text-align:center;font-size:13px;color:var(--sub);pointer-events:none}
+.desc{margin:0;font-size:14.5px;line-height:1.75;color:#4A372B}
+details{border:1px solid var(--line);border-radius:14px;padding:0 14px;background:#fff}
+summary{min-height:46px;display:flex;align-items:center;cursor:pointer;font-weight:600;font-size:14px}
+details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0 14px}
+.pick{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
+.pick:hover{background:#7E2C1A}
+.pick:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.foot{margin-top:28px;text-align:center;font-size:12px;color:#8A7262}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+<form id="f" autocomplete="off">
+<h1>لقمتين</h1>
+<p>صفحة خاصة لمعاينة تصميم العلبة. أدخل كلمة المرور للدخول.</p>
+<label for="pw">كلمة المرور</label>
+<input id="pw" type="password" required autofocus>
+<button id="go" type="submit">دخول</button>
+<div class="err" id="err" role="alert"></div>
+</form>
+</div>
+<main class="app" id="app"></main>
+<script>
+(function(){
+  const SALT='J4/WppjF1h1ggs48uSqYlQ==', IT=250000;
+  const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+  async function keyFrom(pw){
+    const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+    return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(SALT),iterations:IT,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  }
+  async function dec(key,url){
+    const buf=new Uint8Array(await (await fetch(url,{cache:'no-cache'})).arrayBuffer());
+    return crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12)},key,buf.slice(12));
+  }
+  async function open(pw){
+    const key=await keyFrom(pw);
+    const html=new TextDecoder().decode(await dec(key,'content.bin'));
+    try{sessionStorage.setItem('lq',pw)}catch(e){}
+    const app=document.getElementById('app'); app.innerHTML=html;
+    document.getElementById('gate').style.display='none'; app.style.display='block';
+    app.querySelectorAll('model-viewer[data-model]').forEach(async(mv)=>{
+      const blob=new Blob([await dec(key,mv.dataset.model)],{type:'model/gltf-binary'});
+      mv.src=URL.createObjectURL(blob);
+      mv.addEventListener('load',()=>{const l=mv.parentNode.querySelector('.loading');if(l)l.remove();});
+    });
+  }
+  const f=document.getElementById('f'),err=document.getElementById('err'),go=document.getElementById('go');
+  f.addEventListener('submit',async(e)=>{
+    e.preventDefault(); err.textContent=''; go.disabled=true; go.textContent='جارٍ الفتح…';
+    try{await open(document.getElementById('pw').value.trim());}
+    catch(x){err.textContent='كلمة المرور غير صحيحة، حاول مرة أخرى.';go.disabled=false;go.textContent='دخول';}
+  });
+  let saved=null; try{saved=sessionStorage.getItem('lq')}catch(e){}
+  if(saved) open(saved).catch(()=>{});
+})();
+</script>
+</body>
+</html>
