@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=Readex+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 <style>
-:root{--bg:#F6F1E7;--card:#FFFDF8;--ink:#2B1A12;--sub:#6B5444;--line:#E4D7C2;--accent:#9C3B26;--green:#2F4A2A}
+:root{--bg:#F4EAD5;--card:#FFFBF2;--ink:#22351F;--sub:#5E5A44;--line:#E3D5B8;--accent:#2F4A2A;--green:#2F4A2A;--red:#C2402F;--sun:#F6DFAD}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Readex Pro',system-ui,sans-serif}
 button,input{font:inherit}
@@ -21,10 +21,54 @@ button,input{font:inherit}
 .gate label{font-size:13px;font-weight:600}
 .gate input{height:50px;border-radius:14px;border:1.5px solid #CDBBA2;padding:0 14px;background:#fff;direction:ltr;text-align:center;font-size:17px}
 .gate input:focus{outline:3px solid rgba(156,59,38,.25);border-color:var(--accent)}
-.gate button{height:50px;border-radius:14px;border:0;background:var(--ink);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
+.gate button{height:50px;border-radius:14px;border:0;background:var(--green);color:#fff;font-weight:600;font-size:16px;cursor:pointer}
 .gate button:disabled{opacity:.6;cursor:wait}
 .err{color:#B3261E;font-size:13px;min-height:18px}
-.app{display:none;max-width:1240px;margin:0 auto;padding:32px 16px 48px}
+.app{display:none}
+.wrap{max-width:1240px;margin:0 auto;padding:8px 16px 40px;display:flex;flex-direction:column;gap:56px}
+.hero{position:relative;background:var(--bg);overflow:hidden}
+.dotsrow{display:block;width:100%;height:18px}
+.hero .dotsrow{margin-top:18px}
+.hero-in{max-width:980px;margin:0 auto;padding:clamp(24px,5vw,56px) 16px clamp(28px,4vw,44px);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.tag{font-family:'El Messiri',serif;font-weight:700;color:var(--green);font-size:clamp(18px,2.6vw,26px);animation:fadeUp .7s .2s both}
+.hero .lg{width:min(860px,94vw);height:auto;display:block}
+.latin{letter-spacing:.6em;font-weight:600;color:var(--green);font-size:clamp(12px,1.6vw,16px);direction:ltr;margin-inline-start:.6em;animation:fadeUp .7s 1.5s both}
+.intro{margin:14px 0 0;max-width:640px;font-size:clamp(15px,1.8vw,17px);line-height:1.8;color:#4A4630;animation:fadeUp .7s 1.7s both}
+.intro a{color:var(--red);font-weight:600;text-decoration:none;white-space:nowrap}
+.intro a:hover{text-decoration:underline}
+.band{height:34px;background:var(--green) radial-gradient(circle,#F4EAD5 2.6px,transparent 3px) 0 50%/18px 18px repeat-x}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:none}}
+@keyframes rise{from{transform:scaleY(0)}to{transform:none}}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.12)}100%{transform:none}}
+@keyframes drop{0%{transform:translateY(-26px);opacity:0}60%{opacity:1}80%{transform:translateY(3px)}100%{transform:none}}
+.lg path{transform-box:fill-box}
+.lg .wm path{stroke:#2F4A2A;stroke-width:.4}
+.lg.anim .sun{transform-origin:center;animation:pop .9s .1s both}
+.lg.anim .stick{transform-origin:right center;animation:grow .7s cubic-bezier(.2,.8,.2,1) .25s both}
+.lg.anim .tooth{transform-origin:center bottom;animation:rise .45s calc(.6s + var(--d)*.05s) cubic-bezier(.2,.8,.2,1) both}
+.lg.anim .circ{transform-origin:center;animation:pop .6s calc(.55s + var(--d)*.15s) both}
+.lg.anim .dot{transform-origin:center;animation:drop .6s calc(.95s + (var(--d) - 9)*.07s) cubic-bezier(.3,.7,.3,1) both}
+@media (prefers-reduced-motion:reduce){.lg *,.tag,.latin,.intro{animation:none!important}.lg animateTransform{display:none}}
+.sec-h{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;max-width:680px}
+.sec-h h2{margin:0;font-family:'El Messiri',serif;font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--ink)}
+.sec-h p{margin:0;color:var(--sub);font-size:15px;line-height:1.75}
+.concept-g{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+.concept-fig{flex:999 1 420px;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,40px)}
+.concept-fig .lg{width:100%;height:auto}
+.concept-fig .lg path{transition:opacity .35s,fill .35s,transform .35s}
+.lg[data-hl] .wm path,.lg[data-hl] .sun{opacity:.16}
+.lg[data-hl=stick] .wm .stick,.lg[data-hl=circ] .wm .circ,.lg[data-hl=dot] .wm .dot,.lg[data-hl=tooth] .wm .tooth{opacity:1;fill:var(--red);stroke:var(--red)}
+.lg[data-hl=sun] .sun{opacity:1;fill:#EFC56B}
+.cpts{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.cpt{display:flex;gap:12px;align-items:flex-start;text-align:right;padding:14px;border-radius:16px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:44px}
+.cpt>span:last-child{display:flex;flex-direction:column;gap:3px}
+.cpt b{font-family:'El Messiri',serif;font-size:19px}
+.cpt span span{font-size:13.5px;line-height:1.65;color:var(--sub)}
+.cpt-n{flex:none;width:30px;height:30px;border-radius:15px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.cpt[aria-pressed=true]{border-color:var(--red);background:#FFF6EA}
+.cpt[aria-pressed=true] .cpt-n{background:var(--red)}
+.cpt:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 .top{display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
 .eyebrow{font-size:13px;color:#7A5A48}
 .top h1{margin:0;font-family:'El Messiri',serif;font-size:clamp(30px,5vw,46px);line-height:1.15}
@@ -32,7 +76,7 @@ button,input{font:inherit}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:22px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .card-h{display:flex;gap:12px;align-items:center}
-.num{width:44px;height:44px;border-radius:14px;background:var(--ink);color:#fff;font-family:'El Messiri',serif;font-size:24px;display:flex;align-items:center;justify-content:center;flex:none}
+.num{width:44px;height:44px;border-radius:14px;background:var(--green);color:#fff;font-family:'El Messiri',serif;font-size:24px;display:flex;align-items:center;justify-content:center;flex:none}
 .card h2{margin:0;font-family:'El Messiri',serif;font-size:24px}
 .sws{display:flex;gap:6px;margin-top:4px}
 .sw{width:22px;height:12px;border-radius:6px;border:1px solid rgba(0,0,0,.12)}
@@ -44,17 +88,18 @@ details{border:1px solid var(--line);border-radius:14px;padding:0 14px;backgroun
 summary{min-height:46px;display:flex;align-items:center;cursor:pointer;font-weight:600;font-size:14px}
 details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0 14px}
 .shelf{display:flex;flex-direction:column;gap:8px}.shelf-t{font-size:13px;font-weight:600;color:#7A5A48}.shelf-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shelf-g img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block;cursor:zoom-in}.shelf-g img.big{grid-column:1/-1;cursor:zoom-out}
-.pick{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
-.pick:hover{background:#7E2C1A}
+.pick{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
+.pick:hover{background:#1F331C}
 .pick:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.foot{margin-top:28px;text-align:center;font-size:12px;color:#8A7262}
+.foot{background:var(--bg);text-align:center;padding:0 16px 34px}.foot .dotsrow{margin-bottom:22px}.foot p{margin:0;font-family:'El Messiri',serif;font-size:clamp(18px,2.4vw,22px);color:var(--green)}.foot b{color:var(--red)}
+body.in{background:#FBF5E8}
 </style>
 </head>
 <body>
 <div class="gate" id="gate">
 <form id="f" autocomplete="off">
 <h1>لقمتين</h1>
-<p>صفحة خاصة لمعاينة تصميم العلبة. أدخل كلمة المرور للدخول.</p>
+<p>صفحة خاصة لمعاينة الخيارات الأولية لتصميم الشعار والعلبة. أدخل كلمة المرور للدخول.</p>
 <label for="pw">كلمة المرور</label>
 <input id="pw" type="password" required autofocus>
 <button id="go" type="submit">دخول</button>
@@ -64,7 +109,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
 <main class="app" id="app"></main>
 <script>
 (function(){
-  const SALT='jLCNS1ZLEIOlqW+LMvOXVA==', IT=250000;
+  const SALT='KI1iagSnHcwam6zKybIKMg==', IT=250000;
   const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   async function keyFrom(pw){
     const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
@@ -80,6 +125,13 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
     try{sessionStorage.setItem('lq',pw)}catch(e){}
     const app=document.getElementById('app'); app.innerHTML=html;
     document.getElementById('gate').style.display='none'; app.style.display='block';
+    document.body.classList.add('in');
+    const fig=app.querySelector('#cl');
+    app.querySelectorAll('.cpt').forEach(b=>{b.setAttribute('aria-pressed','false');
+      const on=()=>{app.querySelectorAll('.cpt').forEach(o=>o.setAttribute('aria-pressed',o===b?'true':'false'));fig.setAttribute('data-hl',b.dataset.hl);};
+      b.addEventListener('click',on);b.addEventListener('focus',on);
+      b.addEventListener('mouseenter',on);});
+    app.querySelector('.cpts').addEventListener('mouseleave',()=>{if(!app.querySelector('.cpt[aria-pressed=true]:focus'))return;});
     app.querySelectorAll('.shelf-g img').forEach(im=>im.addEventListener('click',()=>{const on=im.classList.toggle('big');im.parentNode.querySelectorAll('img').forEach(o=>{if(o!==im)o.classList.remove('big')});if(on)im.parentNode.prepend(im);}));
     app.querySelectorAll('model-viewer[data-model]').forEach(async(mv)=>{
       const blob=new Blob([await dec(key,mv.dataset.model)],{type:'model/gltf-binary'});
