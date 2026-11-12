@@ -43,6 +43,7 @@ model-viewer{width:100%;height:100%;--poster-color:transparent}
 details{border:1px solid var(--line);border-radius:14px;padding:0 14px;background:#fff}
 summary{min-height:46px;display:flex;align-items:center;cursor:pointer;font-weight:600;font-size:14px}
 details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0 14px}
+.shelf{display:flex;flex-direction:column;gap:8px}.shelf-t{font-size:13px;font-weight:600;color:#7A5A48}.shelf-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shelf-g img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block;cursor:zoom-in}.shelf-g img.big{grid-column:1/-1;cursor:zoom-out}
 .pick{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:14px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
 .pick:hover{background:#7E2C1A}
 .pick:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -63,7 +64,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
 <main class="app" id="app"></main>
 <script>
 (function(){
-  const SALT='J4/WppjF1h1ggs48uSqYlQ==', IT=250000;
+  const SALT='jLCNS1ZLEIOlqW+LMvOXVA==', IT=250000;
   const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   async function keyFrom(pw){
     const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
@@ -79,6 +80,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
     try{sessionStorage.setItem('lq',pw)}catch(e){}
     const app=document.getElementById('app'); app.innerHTML=html;
     document.getElementById('gate').style.display='none'; app.style.display='block';
+    app.querySelectorAll('.shelf-g img').forEach(im=>im.addEventListener('click',()=>{const on=im.classList.toggle('big');im.parentNode.querySelectorAll('img').forEach(o=>{if(o!==im)o.classList.remove('big')});if(on)im.parentNode.prepend(im);}));
     app.querySelectorAll('model-viewer[data-model]').forEach(async(mv)=>{
       const blob=new Blob([await dec(key,mv.dataset.model)],{type:'model/gltf-binary'});
       mv.src=URL.createObjectURL(blob);
