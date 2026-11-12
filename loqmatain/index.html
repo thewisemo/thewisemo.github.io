@@ -44,14 +44,15 @@ img{max-width:100%}
 .wa{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 26px;margin-top:6px;border-radius:28px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:17px;box-shadow:0 10px 24px rgba(47,74,42,.28);animation:fadeUp .7s 1.9s both;transition:transform .15s,background .15s}
 .wa:hover{background:var(--green2);transform:translateY(-2px)}
 .wa:focus-visible,.pick:focus-visible,.cue:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.palm{position:absolute;bottom:34px;width:clamp(170px,30vw,420px);height:auto;z-index:1;opacity:.95;pointer-events:none}
-.palm-r{right:-3vw}.palm-l{left:-3vw}
-.sway{transform-origin:50% 98%;transform-box:view-box;animation:sway 7s ease-in-out infinite alternate}
-@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+.palm{position:absolute;bottom:34px;width:clamp(220px,27vw,400px);height:auto;z-index:1;pointer-events:none;overflow:visible}
+.palm-r{right:1.5vw}.palm-l{left:1.5vw}
+.tap{color:var(--red);font-weight:600}
+.sway{transform-origin:50% 100%;transform-box:fill-box;animation:sway 6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1deg)}to{transform:rotate(1deg)}}
 .cue{position:absolute;z-index:3;left:50%;bottom:48px;transform:translateX(-50%);width:46px;height:46px;border-radius:23px;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(255,251,242,.85);box-shadow:0 6px 16px rgba(0,0,0,.08);animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translate(-50%,6px)}}
 .band{position:relative;z-index:2;height:34px;background:var(--green) radial-gradient(circle,#F4EAD5 2.6px,transparent 3px) 0 50%/18px 18px repeat-x}
-@media (max-width:640px){.palm{opacity:.22;bottom:30px;width:52vw}.hero-in{padding-bottom:110px}}
+@media (max-width:640px){.palm{width:46vw}.palm-r{right:2vw}.palm-l{left:2vw}.hero-in{padding-bottom:calc(38vw + 40px)}.cue{bottom:56px}}
 /* LOGO ANIMATION */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:none}}
@@ -155,7 +156,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
 <main class="app" id="app"></main>
 <script>
 (function(){
-  const SALT='wC0hy3lV/zsfNmr0Vx7qyw==', IT=250000;
+  const SALT='CtUIa2JTCa4ZgMpSXTKfkg==', IT=250000;
   const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   async function keyFrom(pw){
     const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
