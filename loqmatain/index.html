@@ -107,6 +107,8 @@ img{max-width:100%}
 .dir-head{display:flex;flex-direction:column;gap:8px;max-width:720px}
 .dir-k{display:inline-flex;align-self:flex-start;padding:6px 14px;border-radius:16px;background:var(--k);color:var(--bg);font-weight:600;font-size:13px}
 .t2 .dir-k{color:#B5000D}
+.dir.t3{background:#FFFFD3 radial-gradient(70% 50% at 30% 0%,#FFFFE6 0%,#FFFFD3 70%);--k:#25513B;--tx:#1E3F2E;--sb:#5B5A3A;--stage:#FFFFE8;--btn:#25513B;--btnh:#183A29}
+.t3 .dir-k{color:#FFFFD3}
 .dir-head h2{margin:0;font-family:'El Messiri',serif;font-size:clamp(34px,6vw,60px);line-height:1.1;color:var(--tx)}
 .dir-head p{margin:0;font-size:16px;line-height:1.85;color:var(--sb)}
 .sws{display:flex;gap:6px}
@@ -156,7 +158,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
 <main class="app" id="app"></main>
 <script>
 (function(){
-  const SALT='F+M7NObO4PZNymnqSfIYAQ==', IT=250000;
+  const SALT='mtnxzs1/cwPiJhn4qaSzOQ==', IT=250000;
   const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   async function keyFrom(pw){
     const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
