@@ -158,7 +158,7 @@ details img{display:block;width:100%;height:auto;border-radius:10px;margin:4px 0
 <main class="app" id="app"></main>
 <script>
 (function(){
-  const SALT='mto1f4zjoGrDG+8Niuge4g==', IT=250000;
+  const SALT='++mUE5t3qbTWVHWht6RVZg==', IT=250000;
   const b64=(s)=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
   async function keyFrom(pw){
     const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
