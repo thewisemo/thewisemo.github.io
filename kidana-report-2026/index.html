@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تقرير مجلس إدارة كدانة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Big+Shoulders+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: واثق ومباشر، عرض شراكة بين اتنين يعرفوا بعض
+   IDEA: ملف صفقة مكتوب بالحبر والذهب: الرقم الأول، وبعده القرار
+   PICTURE: عمودين جنب بعض يوضحوا إن وزن البند في المقارنة غير وزنه في الفلوس
+   COLOUR and TYPE: حبر WISEMO مع الذهب والعاجي، Cairo للنص و Big Shoulders للأرقام
+   LAYOUT: هيرو بالرقم والصورة، وبعده التقويم والحاسبة والشروط */
+:root{color-scheme:dark;--bg:#0c0b09;--bg2:#15130f;--line:#2a261e;--ink:#efe8da;--dust:#a79f8f;--gold:#d4ad4b;--gold2:#8a6b22;--teal:#4fa89a;--rose:#c9775e}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Cairo,"IBM Plex Sans Arabic",Tahoma,sans-serif;overflow-x:clip}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}.in{max-width:1240px;margin:auto}
+.alt{background:var(--bg2);border-block:1px solid var(--line)}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.15;margin:.2em 0 .3em;text-wrap:balance;font-weight:800}
+h2{font-size:clamp(26px,3.4vw,36px);line-height:1.2;margin:0 0 .4em;text-wrap:balance}
+p{margin:.4em 0;max-width:68ch}.mut{color:var(--dust)}
+.num{font-family:"Big Shoulders Display",Cairo,sans-serif;font-weight:800;letter-spacing:.5px;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{width:150px;height:auto;color:var(--gold)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:center;margin-top:24px}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.k{border-top:2px solid var(--gold);padding-top:8px}.k .num{font-size:clamp(30px,4vw,44px);color:var(--gold);display:block;line-height:1}.k small{color:var(--dust);font-size:14px}
+.duo{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:300px;margin:14px 0}
+.col{display:flex;flex-direction:column;gap:3px}.col b{font-size:14px;text-align:center;display:block;margin-bottom:6px}
+.seg{border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#0c0b09;font-weight:600;transition:flex-grow .8s ease;flex-grow:0;overflow:hidden;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px}
+.c1{background:var(--rose)}.c2{background:var(--gold)}.c3{background:var(--teal)}.c4{background:#6b6456;color:var(--ink)}
+.months{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.ev{flex:0 0 210px;scroll-snap-align:start;text-align:start;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--ink);font:inherit;cursor:pointer;min-height:132px}
+.ev[aria-pressed=true]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.ev .m{color:var(--gold);font-size:14px}.ev b{display:block;line-height:1.35;margin:4px 0}.ev .num{color:var(--dust);font-size:18px}
+.ev:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.det{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;margin-top:18px;border-top:1px solid var(--line);padding-top:18px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.row3 div{background:var(--bg);border-radius:10px;padding:10px 12px}.row3 small{display:block;color:var(--dust);font-size:13px}.row3 .num{font-size:24px}
+.nav{display:flex;gap:8px;margin-top:10px}.btn{min-height:44px;min-width:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.opt{min-height:44px;padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer}
+.opt[aria-pressed=true]{background:var(--gold);color:#0c0b09;border-color:var(--gold);font-weight:700}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+label{display:block;font-weight:600;margin-top:12px}input[type=range]{width:100%;accent-color:var(--gold);height:44px}
+.chk{display:flex;align-items:center;gap:10px;min-height:44px;font-weight:400}.chk input{width:22px;height:22px;accent-color:var(--gold)}
+.split .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:14px}.split .num{font-size:clamp(34px,5vw,52px);line-height:1}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;transition:width .5s ease}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px;margin-top:14px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg)}.card h3{margin:0 0 6px;font-size:19px;color:var(--gold)}.card p{font-size:15.5px;color:var(--dust)}
+ul.t{padding:0;margin:10px 0;list-style:none}ul.t li{padding:10px 0;border-bottom:1px solid var(--line)}ul.t b{color:var(--gold)}
+footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--dust);font-size:14px}
+@media(max-width:820px){.hero,.calc,.det{grid-template-columns:1fr}.cols{height:240px}.row3 .num{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.seg{min-height:14px;cursor:pointer;border:0;font:inherit;width:100%;padding:0}.seg[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:-3px}
+.seg:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.cat{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}.cat h3{margin:0;font-size:20px}.cat .pp{display:flex;gap:18px;flex-wrap:wrap;margin:6px 0;color:var(--dust);font-size:14px}.cat .pp b{color:var(--ink);font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;max-height:240px;overflow:auto}.chips span{font-size:13.5px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.hint{font-size:14px;color:var(--gold);margin:4px 0 0}
+
+.top{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.go{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--gold);color:#0c0b09;font-weight:700;text-decoration:none}
+.go:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ppg{display:grid;gap:12px;margin-top:14px}.pr{display:grid;grid-template-columns:minmax(0,11em) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:15px}
+.pr .bar{height:22px;margin:0}.pr .num{font-size:20px}.pr.me b{color:var(--gold)}
+.src a{color:var(--gold)}.src{font-size:14px;color:var(--dust)}
+table{width:100%;border-collapse:collapse;margin-top:10px}td,th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}th{color:var(--dust);font-weight:600;font-size:14px}td.n{text-align:end;white-space:nowrap}
+tfoot td{font-weight:800;color:var(--gold);font-size:18px}
+@media(max-width:600px){.pr{grid-template-columns:1fr auto}.pr .bar{grid-column:1/-1;order:3}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 1031.62 414.57"><path d="M 234.792969 144.472656 C 237.097656 145.804688 239.613281 146.4375 242.097656 146.4375 C 247.140625 146.4375 252.042969 143.824219 254.75 139.148438 C 265.824219 120.011719 286.421875 108.121094 308.503906 108.121094 L 444.050781 108.121094 C 452.117188 108.121094 458.65625 101.578125 458.65625 93.515625 C 458.65625 85.449219 452.117188 78.90625 444.050781 78.90625 L 421.050781 78.90625 C 393.109375 78.90625 370.386719 56.183594 370.386719 28.25 C 370.386719 20.183594 363.84375 13.644531 355.78125 13.644531 C 347.714844 13.644531 341.175781 20.183594 341.175781 28.25 C 341.175781 47.464844 348 65.113281 359.347656 78.90625 L 308.503906 78.90625 C 276.03125 78.90625 245.75 96.386719 229.46875 124.515625 C 225.425781 131.496094 227.8125 140.433594 234.792969 144.472656"/><path d="M 613.394531 352.832031 L 602.222656 352.832031 C 574.28125 352.832031 548.214844 337.78125 534.203125 313.558594 C 533.171875 311.773438 531.953125 310.167969 530.621094 308.703125 C 538.625 278.125 535.75 245.347656 522.023438 216.402344 C 546.695312 248.945312 585.753906 270.015625 629.648438 270.015625 L 691.902344 270.015625 L 691.902344 274.324219 C 691.902344 317.613281 656.683594 352.832031 613.394531 352.832031 M 998.773438 186.925781 C 950.582031 130.183594 865.210938 123.234375 808.480469 171.429688 L 763.710938 209.460938 C 764.273438 205.847656 764.65625 202.175781 764.65625 198.410156 L 764.65625 135.011719 C 764.65625 60.566406 704.089844 0 629.648438 0 C 555.207031 0 494.640625 60.566406 494.640625 135.011719 C 494.640625 155.667969 499.316406 175.246094 507.644531 192.765625 C 503.988281 187.953125 500.097656 183.257812 495.707031 178.867188 C 443.058594 126.230469 357.425781 126.230469 304.777344 178.867188 L 263.355469 220.285156 C 258.175781 214.320312 250.628906 210.46875 242.109375 210.46875 C 226.511719 210.46875 213.859375 223.121094 213.859375 238.71875 L 213.859375 279.136719 C 213.859375 322.425781 178.644531 357.640625 135.355469 357.640625 C 92.066406 357.640625 56.847656 322.425781 56.847656 279.136719 L 56.847656 273.25 C 56.847656 263.773438 58.554688 258.75 60.011719 257.324219 C 65.609375 251.878906 91.488281 252.585938 110.375 253.09375 C 110.390625 253.09375 110.40625 253.09375 110.421875 253.097656 C 115.144531 262.109375 124.476562 268.332031 135.355469 268.332031 C 150.953125 268.332031 163.605469 255.679688 163.605469 240.078125 L 163.605469 230.53125 C 163.605469 229.632812 163.421875 228.785156 163.339844 227.90625 C 163.421875 227.03125 163.605469 226.183594 163.605469 225.28125 C 163.605469 209.683594 150.953125 197.03125 135.355469 197.03125 C 127.289062 197.03125 119.4375 196.820312 111.90625 196.609375 C 76.617188 195.664062 43.289062 194.753906 20.605469 216.835938 C 7.164062 229.925781 0.34375 248.90625 0.34375 273.25 L 0.34375 279.136719 C 0.34375 353.578125 60.914062 414.140625 135.355469 414.140625 C 193.058594 414.140625 242.398438 377.742188 261.679688 326.710938 L 304.773438 369.800781 C 331.089844 396.113281 365.65625 409.269531 400.230469 409.269531 C 434.804688 409.269531 469.382812 396.113281 495.707031 369.789062 C 497.636719 367.855469 499.347656 365.792969 501.136719 363.777344 C 526.511719 392.351562 563.300781 409.335938 602.222656 409.335938 L 613.394531 409.335938 C 677.722656 409.335938 731.652344 364.09375 745.128906 303.769531 C 747.125 307.101562 749.34375 310.351562 751.941406 313.410156 L 792.980469 361.730469 C 819.644531 393.125 857.691406 409.269531 895.972656 409.269531 C 926.875 409.269531 957.929688 398.75 983.273438 377.226562 L 987.675781 373.480469 L 987.832031 373.175781 C 1012.609375 350.175781 1027.679688 319.191406 1030.441406 285.28125 C 1033.367188 249.339844 1022.121094 214.410156 998.773438 186.925781"/></symbol></svg>
+<section class="band"><div class="in">
+<header><svg class="logo" viewBox="0 0 1031.62 414.57" fill="currentColor" role="img" aria-label="WISEMO"><use href="#logo"/></svg>
+<div class="top"><span class="mut">تسعير مقدَّم لـ كِنده للدعاية والإعلان</span><a class="go" href="../kidana-2027/">صفحة شراكة الفعاليات 2027 ←</a></div></header>
+<div class="hero">
+<div>
+<h1>تقرير مجلس إدارة كدانة 2026: 340 صفحة بـ 353 ريال للصفحة شاملة المحتوى</h1>
+<p class="mut">الحجم أكتر من ضعف تقرير السنة اللي فاتت (128 صفحة)، والنطاق فيه كتابة المحتوى وتحليل البيانات وكلمتين للقيادة، مش تصميم بس. والعميل شركة رأس مالها المصرّح به مليار ريال.</p>
+<div class="kpis">
+<div class="k"><span class="num">120K</span><small>تصميم + محتوى (ر.س، بدون طباعة وضريبة)</small></div>
+<div class="k"><span class="num">85K</span><small>لو التصميم والإخراج بس</small></div>
+<div class="k"><span class="num">340</span><small>صفحة: 300 للتقرير الرئيسي + 40 للملخص التنفيذي</small></div>
+<div class="k"><span class="num">6</span><small>شهور: 3 للتنفيذ + 3 للتعديلات والاعتماد</small></div>
+</div></div>
+<div class="duo">
+<b>سعر الصفحة الواحدة مقارنة بالسوق (تصميم بس)</b>
+<p class="mut" style="font-size:14px;margin:4px 0">حرّك عدد الصفحات وشوف التكلفة عند كل فئة.</p>
+<label for="pg">عدد الصفحات: <span class="num" id="pgV"></span></label>
+<input type="range" id="pg" min="100" max="400" step="10" value="340">
+<div class="ppg" id="ppg"></div>
+<p class="src" style="margin-top:12px">نطاق كتيبات الصفحات المتعددة في السوق 50–150 دولار للصفحة (ManyPixels 2026). السعر المقترح للتصميم بيبقى حوالي 67 دولار للصفحة، يعني في الربع الأقل من النطاق.</p>
+</div></div></div></section>
+
+<section class="band alt"><div class="in">
+<h2>الرقم مبني على إيه؟</h2>
+<div class="grid4">
+<div class="card"><h3>كتابة التقرير لوحدها</h3><p>شركة في دبي متخصصة في كتابة التقارير السنوية للجهات السعودية وشبه الحكومية بتبدأ أسعارها من 13 ألف درهم، و21 ألف للباقة التنظيمية، و35 ألف للباقة ثنائية اللغة. ده للكتابة بس، من غير أي تصميم.</p><p class="src"><a href="https://labeeb.ae/ar/annual-report-writing-services-ar/">Labeeb · باقات التقارير السنوية</a></p></div>
+<div class="card"><h3>سعر الصفحة</h3><p>الكتيبات متعددة الصفحات بتتسعر بالصفحة، من 50 لـ150 دولار. ولـ 340 صفحة ده يطلع ما بين 64 و191 ألف ريال للتصميم بس.</p><p class="src"><a href="https://www.manypixels.co/blog/print-design/brochure-design-cost">ManyPixels · تكلفة تصميم الكتيبات 2026</a></p></div>
+<div class="card"><h3>الوكالات</h3><p>الوكالات بتاخد من 5 لـ30 ألف دولار وأكتر على تصميم التقرير السنوي حسب عدد الصفحات والتعقيد. ومتوسط مشروع وكالة التصميم على Clutch حوالي 56 ألف دولار.</p><p class="src"><a href="https://clone.deskteam360.com/?p=50955">DeskTeam360</a> · <a href="https://clutch.co/agencies/design/pricing">Clutch · أسعار وكالات التصميم</a></p></div>
+<div class="card"><h3>حجم العميل</h3><p>كدانة شركة مساهمة مغلقة مملوكة للهيئة الملكية برأس مال مصرّح مليار ريال. وعقد إدارة برنامجها مع Parsons وحده قيمته 65 مليون دولار.</p><p class="src"><a href="https://www.okaz.com.sa/ampArticle/2055089">عكاظ</a> · <a href="https://www.parsons.com/project/kidana-holy-sites-transformation-program-makkah-city-saudi-arabia/">Parsons</a></p></div>
+</div>
+<p class="src" style="margin-top:14px">على الطرف التاني: خدمات المستقلين على خمسات بتتسعر بالصفحة الواحدة وبتتسلم في يومين. دي فئة تانية خالص، مش فئة تقرير مجلس إدارة لجهة حكومية. <a href="https://khamsat.com/services/تصميم-تقرير-سنوي">خمسات · تصميم تقرير سنوي</a></p>
+</div></section>
+
+<section class="band"><div class="in">
+<h2>تفصيل السعر</h2>
+<div class="opts" role="group" aria-label="النطاق"><button class="opt" data-s="d">تصميم وإخراج بس</button><button class="opt" data-s="f" aria-pressed="true">تصميم + محتوى</button></div>
+<table><thead><tr><th>البند</th><th style="text-align:end">ر.س</th></tr></thead><tbody id="tb"></tbody><tfoot><tr><td>الإجمالي (بدون الطباعة والضريبة)</td><td class="n num" id="tt"></td></tr></tfoot></table>
+<p class="src">الحد الأدنى للتفاوض: 95 ألف للتصميم + المحتوى، أو 75 ألف للتصميم بس.</p>
+</div></section>
+
+<section class="band alt"><div class="in">
+<h2>الشروط اللي بتحمي الطرفين من كتر التعديلات</h2>
+<ul class="t">
+<li><b>الدفع:</b> 40% مع التعميد، و30% مع تسليم المسودة الكاملة، و30% مع الاعتماد النهائي. ملفات الطباعة تتسلم بعد آخر دفعة.</li>
+<li><b>التعديلات:</b> 3 جولات لكل مرحلة (الهيكل، النماذج الأولى، المسودة الكاملة، الإخراج النهائي).</li>
+<li><b>منسق واحد:</b> الملاحظات توصل مجمّعة من شخص واحد معتمد في كدانة.</li>
+<li><b>تثبيت المحتوى:</b> بتاريخ متفق عليه، وأي محتوى جديد أو إعادة تصميم بعده بـ 250 ريال للصفحة.</li>
+<li><b>القوائم المالية:</b> توصل جاهزة ومعتمدة من المراجع، وعلينا الإخراج بس.</li>
+<li><b>المدة:</b> أي تمديد بعد الـ 6 شهور بسبب تأخير من العميل يتحسب برسوم شهرية.</li>
+</ul>
+<h2 style="margin-top:28px">الجدول الزمني</h2>
+<ul class="t">
+<li><b>أسبوع 1–2:</b> استلام البيانات والصور، والهيكل، والاتجاه البصري.</li>
+<li><b>أسبوع 3–5:</b> نماذج أولى (الغلاف + 10 صفحات) للاعتماد.</li>
+<li><b>أسبوع 6–10:</b> المسودة الكاملة + الملخص التنفيذي.</li>
+<li><b>شهر 4–6:</b> التعديلات والاعتماد وتجهيز ملفات الطباعة.</li>
+</ul>
+<p class="mut">الطباعة الفاخرة (50 نسخة و50 بوكس) على كِنده، وسعرها بيتحدد بعرض المطبعة.</p>
+<a class="go" href="../kidana-2027/" style="margin-top:12px">صفحة شراكة الفعاليات 2027 ←</a>
+</div></section>
+
+<section class="band"><div class="in"><footer><svg class="logo" style="width:110px" viewBox="0 0 1031.62 414.57" fill="currentColor" aria-hidden="true"><use href="#logo"/></svg><span>مؤمن الرفاعي · مدير إبداعي · <span class="num">+966 56 335 3079</span></span></footer></div></section>
+<script>{
+const R=3.75;
+const tiers=[["مستقل (تقديري)",15,"var(--dust)"],["أقل السوق",50,"#6b6456"],["المقترح (WISEMO)",250/R,"var(--gold)",1],["أعلى السوق",150,"var(--rose)"]];
+const k=n=>n>=1000?Math.round(n/1000)+'K':Math.round(n)+'';
+const draw=()=>{const p=+document.getElementById('pg').value;document.getElementById('pgV').textContent=p;
+const mx=150*R*p;document.getElementById('ppg').innerHTML=tiers.map(t=>{const v=t[1]*R*p;return `<div class="pr${t[3]?' me':''}"><b>${t[0]}</b><div class="bar"><i style="width:${v/mx*100}%;background:${t[2]}"></i></div><span class="num">${k(v)}</span></div>`}).join('');};
+document.getElementById('pg').oninput=draw;draw();
+const D=[["الكونسبت ونظام التصميم (الجريد، والخطوط، وستايل الإنفوجرافيك والأيقونات)",12000],["حوالي 120 صفحة تصميم ثقيل (مؤشرات، ومبادرات، وإنفوجرافيك) × 250",30000],["حوالي 180 صفحة إخراج (حوكمة، وجداول مالية، ونصوص) × 80",14000],["الملخص التنفيذي، 40 صفحة × 300، ونسخته من غير القوائم المالية",12000],["تصميم الغلاف والبوكس وتجهيز ملفات الطباعة ومتابعة البروفات",6000],["هامش دورات التعديل المتكررة على 6 شهور",11000]];
+const C=[["المحتوى: هيكلة، وكتابة كلمة رئيس المجلس والرئيس التنفيذي، وصياغة، وتحليل بيانات، ونص الملخص",27000],["التدقيق اللغوي على أكتر من جولة",8000]];
+const show=s=>{const rows=s==='f'?D.concat(C):D;let t=0;
+document.getElementById('tb').innerHTML=rows.map(r=>{t+=r[1];return `<tr><td>${r[0]}</td><td class="n num">${r[1].toLocaleString('en')}</td></tr>`}).join('');
+document.getElementById('tt').textContent=t.toLocaleString('en');};
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{document.querySelectorAll('.opt').forEach(x=>x.setAttribute('aria-pressed',x===b));show(b.dataset.s)});
+show('f');
+}</script></body></html>
